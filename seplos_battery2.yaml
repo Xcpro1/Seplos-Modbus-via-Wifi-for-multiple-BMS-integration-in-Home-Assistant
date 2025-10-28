@@ -1,7 +1,7 @@
 
   name: SEPLOS_BATTERIA2
   type: tcp
-  host: 192.168.178.127
+  host: #- your Elfwin WiFi IP -#
   port: 502
   timeout: 20
   delay: 2
