@@ -1,0 +1,6 @@
+modbus:
+  - !include seplos_battery1.yaml
+  - !include seplos_battery2.yaml
+
+sensors:
+  - !include sensors.yaml
