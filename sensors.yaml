@@ -1,0 +1,22 @@
+  platform: template
+  sensors:
+    potenza_batteria_1:
+      friendly_name: "Potenza Batteria 1"
+      unit_of_measurement: W
+      value_template: "{{ (states('sensor.seplos_n1_tensione')|float(0) * states('sensor.seplos_n1_corrente')|float(0)) | round(2) }}"
+
+    potenza_batteria_2:
+      friendly_name: "Potenza Batteria 2"
+      unit_of_measurement: W
+      value_template: "{{ (states('sensor.seplos_n2_tensione')|float(0) * states('sensor.seplos_n2_corrente')|float(0)) | round(2) }}"
+
+    differenza_celle_n1:
+      friendly_name: "Differenza tensione celle N1"
+      unit_of_measurement: V
+      value_template: "{{ (states('sensor.seplos_n1_max_tensione_celle')|float(0) - states('sensor.seplos_n1_min_tensione_celle')|float(0)) | round(3) }}"
+
+    differenza_celle_n2:
+      friendly_name: "Differenza tensione celle N2"
+      unit_of_measurement: V
+      value_template: "{{ (states('sensor.seplos_n2_max_tensione_celle')|float(0) - states('sensor.seplos_n2_min_tensione_celle')|float(0)) | round(3) }}"
+      
