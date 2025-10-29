@@ -18,4 +18,4 @@ Impostare dal router l'IP dell'Elfwin come statico.
 
 Inserire i file yaml alla root di Home Assistant, modificando il "configuration.yaml" con le stringhe del file "configuration..." allegato alla repository. 
 
-Se occorre monitorare più pacchi non collegati tra loro (slave e master), nominare diversamente il nome del file, l'indirizzo IP del nuovo Elfwin e il nome de
+Se occorre monitorare più pacchi non collegati tra loro (slave e master), nominare diversamente il nome del file, l'indirizzo IP del nuovo Elfwin e il nome del nuovo dispositivo così come nelle differenze tra i files seplos_1 e _2.
