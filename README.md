@@ -10,7 +10,7 @@ Cosa vi occorre?
 
 Procediamo:
 
-Tagliare il cavo lan e spellare  i cavi bianco-arancio e arancio- Collegare il primo al pin A e il secondo. 
+Tagliare il cavo lan e spellare  i cavi bianco-arancio e arancio- Collegare il primo al pin A e il secondo. Quindi collegarlo all'uscita RS485 del Seplos.
 
 Accedere al AP dell'Elfwin, andare su "others" e caricare il file di backup "EW11_Seplos", avendo cura di modificare l'indirizzo IP con il proprio assegnato dal vostro router. 
 
