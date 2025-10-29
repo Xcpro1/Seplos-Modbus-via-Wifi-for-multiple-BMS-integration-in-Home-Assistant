@@ -1,3 +1,5 @@
+Configurazione completa per collegare il BMS **SEPLOS N2 (16 celle)** a **Home Assistant** via **Modbus TCP** tramite **Elfwin EW11A**.
+
 Con questo progetto ho raccolto tutte le informazioni e le configurazioni necessarie per poter integrare direttamente i BMS Seplos, ma anche moltissimi altri conoscendone i protocolli ModBus, in Home Assistant. 
 
 Cosa vi occorre?
@@ -19,3 +21,9 @@ Impostare dal router l'IP dell'Elfwin come statico.
 Inserire i file yaml alla root di Home Assistant, modificando il "configuration.yaml" con le stringhe del file "configuration..." allegato alla repository. 
 
 Se occorre monitorare più pacchi non collegati tra loro (slave e master), nominare diversamente il nome del file, l'indirizzo IP del nuovo Elfwin e il nome del nuovo dispositivo così come nelle differenze tra i files seplos_1 e _2.
+
+Riferimenti
+
+Protocollo ufficiale SEPLOS BMS Modbus RTU
+
+Testato e verificato da @Xcpro1.
