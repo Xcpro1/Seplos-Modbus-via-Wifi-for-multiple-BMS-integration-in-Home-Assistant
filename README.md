@@ -10,4 +10,10 @@ Cosa vi occorre?
 
 Procediamo:
 
-Tagliare il cavo lan e spellare  i cavi bianco-arancio e arancio- Collegare il primo al pin A e il secondo... work in progress..
+Tagliare il cavo lan e spellare  i cavi bianco-arancio e arancio- Collegare il primo al pin A e il secondo. 
+
+Accedere al AP dell'Elfwin, andare su "others" e caricare il file di backup "Elfwin_restore", avendo cura di modificare l'indirizzo IP con il proprio assegnato dal vostro router. 
+
+Impostare dal router l'IP dell'Elfwin come statico.
+
+Inserire i file yaml alla root di Home Assistant, modificando il "configuration.yaml" con le stringhe del file "configuration..." allegato alla repository. 
