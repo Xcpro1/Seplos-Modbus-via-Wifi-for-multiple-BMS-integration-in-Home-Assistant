@@ -1,4 +1,4 @@
-Complete configuration for connecting the **SEPLOS N2 (16 cells)** BMS to **Home Assistant** via **Modbus TCP** using **Elfwin EW11A**.
+Complete configuration for connecting multiple **SEPLOS v.03 (16 cells)** BMS to **Home Assistant** via **Modbus TCP** using **Elfwin EW11A**.
 
 With this project, I've gathered all the information and configurations needed to directly integrate Seplos BMSs, as well as many others with knowledge of their ModBus protocols, into Home Assistant.
 
