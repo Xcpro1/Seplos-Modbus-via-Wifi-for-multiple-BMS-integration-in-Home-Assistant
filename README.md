@@ -5,6 +5,7 @@ With this project, I've gathered all the information and configurations needed t
 What do you need?
 - A non-switched LAN cable.
 - An Elfwin EW11A (or similar).
+- 5/12v charger
 - Obviously, a BMS with ModBus protocol.
 
 Let's proceed:
