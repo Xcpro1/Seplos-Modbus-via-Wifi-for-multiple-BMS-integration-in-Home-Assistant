@@ -1,0 +1,59 @@
+# ----------------------------
+# SENSORI SISTEMA BATTERIE (N1 + N2)
+# ----------------------------
+
+batterie_delta_max:
+  friendly_name: "Δ Celle Max"
+  unit_of_measurement: "V"
+  value_template: >
+    {% set d1 = states('sensor.differenza_celle_n1')|float(0) %}
+    {% set d2 = states('sensor.differenza_celle_n2')|float(0) %}
+    {{ [d1, d2] | max | round(3) }}
+
+batterie_volt_min:
+  friendly_name: "Tensione Minima"
+  unit_of_measurement: "V"
+  value_template: >
+    {% set v1 = states('sensor.seplos_n1_tensione')|float(0) %}
+    {% set v2 = states('sensor.seplos_n2_tensione_2')|float(0) %}
+    {{ [v1, v2] | min | round(2) }}
+
+batterie_ampere_tot:
+  friendly_name: "Corrente Totale"
+  unit_of_measurement: "A"
+  value_template: >
+    {% set a1 = states('sensor.seplos_n2_corrente_2')|float(0) %}
+    {% set a2 = states('sensor.seplos_n1_corrente')|float(0) %}
+    {{ (a1 + a2) | round(2) }}
+
+batterie_watt_tot:
+  friendly_name: "Potenza Totale"
+  unit_of_measurement: "W"
+  value_template: >
+    {% set w1 = states('sensor.potenza_batteria_1')|float(0) %}
+    {% set w2 = states('sensor.potenza_batteria_2')|float(0) %}
+    {{ (w1 + w2) | round(2) }}
+
+batterie_temp_media:
+  friendly_name: "Temperatura Media"
+  unit_of_measurement: "°C"
+  value_template: >
+    {% set t1 = states('sensor.seplos_n2_avg_cell_temp')|float(0) %}
+    {% set t2 = states('sensor.seplos_n1_avg_cell_temp')|float(0) %}
+    {% if t1 == 0 and t2 == 0 %}
+      0
+    {% elif t1 == 0 %}
+      {{ t2 }}
+    {% elif t2 == 0 %}
+      {{ t1 }}
+    {% else %}
+      {{ ((t1 + t2) / 2) | round(1) }}
+    {% endif %}
+
+batterie_capacita_tot:
+  friendly_name: "Capacità Totale"
+  unit_of_measurement: "Ah"
+  value_template: >
+    {% set c1 = states('sensor.batterie_capacita_tot')|float(0) %}
+    {% set c2 = states('sensor.batterie_capacita_tot_2')|float(0) %}
+    {{ (c1 + c2) | round(1) }}

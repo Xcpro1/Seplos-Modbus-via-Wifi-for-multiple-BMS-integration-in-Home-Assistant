@@ -1,0 +1,640 @@
+
+  name: SEPLOS_BATTERIA1
+  type: tcp
+  host: 192.168.178.29
+  port: 502
+  timeout: 20
+  delay: 2
+  retries: 3
+
+  sensors:
+    - name: SEPLOS N1 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4096
+      input_type: input
+      scale: 0.01
+      precision: 2
+      device_class: voltage
+
+    - name: SEPLOS N1 CORRENTE
+      unit_of_measurement: A
+      slave: 0
+      address: 4097
+      input_type: input
+      scale: 0.01
+      precision: 2
+      device_class: current
+
+    - name: SEPLOS N1 SOC
+      unit_of_measurement: "%"
+      slave: 0
+      address: 4101
+      input_type: input
+      scale: 0.1
+      precision: 1
+      device_class: battery
+
+    - name: SEPLOS N1 MAX TENSIONE CELLE
+      unit_of_measurement: V
+      slave: 0
+      address: 4106
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 MIN TENSIONE CELLE
+      unit_of_measurement: V
+      slave: 0
+      address: 4107
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+      
+    - name: "SEPLOS N1 Remaining Capacity"
+      unit_of_measurement: Ah
+      slave: 0
+      address: 4098       # 0x1002
+      input_type: input
+      data_type: uint16
+      scale: 0.01
+      precision: 2
+      
+    - name: "SEPLOS N1 Total Capacity"
+      unit_of_measurement: Ah
+      slave: 0
+      address: 4099       # 0x1003
+      input_type: input
+      data_type: uint16
+      scale: 0.01
+      precision: 2
+      
+    - name: "SEPLOS N1 SOH"
+      unit_of_measurement: "%"
+      slave: 0
+      address: 4102       # 0x1006
+      input_type: input
+      data_type: uint16
+      scale: 0.1
+      precision: 1
+      
+    - name: "SEPLOS N1 Cycle Count"
+      slave: 0
+      address: 4103       # 0x1007
+      input_type: input
+      data_type: uint16
+      
+    - name: "SEPLOS N1 Avg Cell Voltage"
+      unit_of_measurement: V
+      slave: 0
+      address: 4104       # 0x1008
+      input_type: input
+      data_type: uint16
+      scale: 0.001
+      precision: 3
+      
+    - name: "SEPLOS N1 Avg Cell Temp"
+      unit_of_measurement: C°
+      slave: 0
+      address: 4105       # 0x1009
+      input_type: input
+      data_type: int16
+      scale: 0.1
+      precision: 1
+      offset: -273.15
+      
+        # ----------------------
+    #  Temperature
+    # ----------------------
+    - name: "SEPLOS N1 Temp Sensor 1"
+      unit_of_measurement: C°
+      slave: 0
+      address: 4368       # 0x1110
+      input_type: input
+      data_type: int16
+      scale: 0.1
+      precision: 1
+      offset: -273.15
+
+    - name: "SEPLOS N1 Temp Sensor 2"
+      unit_of_measurement: C°
+      slave: 0
+      address: 4369       # 0x1111
+      input_type: input
+      data_type: int16
+      scale: 0.1
+      precision: 1
+      offset: -273.15
+
+    - name: "SEPLOS N1 Temp Sensor 3"
+      unit_of_measurement: C°
+      slave: 0
+      address: 4370       # 0x1112
+      input_type: input
+      data_type: int16
+      scale: 0.1
+      precision: 1
+      offset: -273.15
+
+    - name: "SEPLOS N1 Temp Sensor 4"
+      unit_of_measurement: C°
+      slave: 0
+      address: 4371       # 0x1113
+      input_type: input
+      data_type: int16
+      scale: 0.1
+      precision: 1
+      offset: -273.15
+
+    - name: "SEPLOS N1 Env Temp"
+      unit_of_measurement: C°
+      slave: 0
+      address: 4376       # 0x1118
+      input_type: input
+      data_type: int16
+      scale: 0.1
+      precision: 1
+      offset: -273.15
+
+    - name: "SEPLOS N1 Power Temp"
+      unit_of_measurement: C°
+      slave: 0
+      address: 4377       # 0x1119
+      input_type: input
+      data_type: int16
+      scale: 0.1
+      precision: 1
+      offset: -273.15
+    
+    - name: SEPLOS N1_MOS Temp
+      slave: 1
+      address: 4368        # 0x1110
+      input_type: input
+      data_type: int16
+      scale: 0.1
+      offset: -273.15      
+      precision: 1
+      unit_of_measurement: "C°"
+  
+
+    # ----------------------
+    # Stati e allarmi principali
+    # ----------------------
+    - name: "SEPLOS N1 Alarm Flags"
+      slave: 0
+      address: 4608       # 0x1200
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS N1 Protection Flags"
+      slave: 0
+      address: 4609       # 0x1201
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS N1 Balance State"
+      slave: 0
+      address: 4610       # 0x1202
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS N1 MOS State"
+      slave: 0
+      address: 4611       # 0x1203
+      input_type: input
+      data_type: uint16
+      
+        # ----------------------
+    # Eventi e codici di stato (Pack Info C)
+    # ----------------------
+    - name: "SEPLOS Cells Voltage 08-01 Low Alarm"
+      slave: 0
+      address: 4608       # 0x1200
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Cells Voltage 16-09 Low Alarm"
+      slave: 0
+      address: 4609       # 0x1201
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Cells Voltage 08-01 High Alarm"
+      slave: 0
+      address: 4610       # 0x1202
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Cells Voltage 16-09 High Alarm"
+      slave: 0
+      address: 4611       # 0x1203
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Cell 08-01 Temperature Low Alarm"
+      slave: 0
+      address: 4612       # 0x1204
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Cell 08-01 Temperature High Alarm"
+      slave: 0
+      address: 4613       # 0x1205
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Cell 08-01 Equalization Event Code"
+      slave: 0
+      address: 4614       # 0x1206
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Cell 16-09 Equalization Event Code"
+      slave: 0
+      address: 4615       # 0x1207
+      input_type: input
+      data_type: uint16
+      
+    - name: SEPLOS Equalization State
+      slave: 0
+      address: 4624        # 0x1210
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: ""
+
+
+    - name: "SEPLOS System State Code"
+      slave: 0
+      address: 4616       # 0x1208
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Voltage Event Code"
+      slave: 0
+      address: 4617       # 0x1209
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Cells Temperature Event Code"
+      slave: 0
+      address: 4618       # 0x120A
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Environment & Power Temp Event Code"
+      slave: 0
+      address: 4619       # 0x120B
+      input_type: input
+      data_type: uint16
+      
+    - name: "SEPLOS Current Event Code 1"
+      slave: 0
+      address: 4620       # 0x120C
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Current Event Code 2"
+      slave: 0
+      address: 4621       # 0x120D
+      input_type: input
+      data_type: uint16
+    
+    - name: "SEPLOS Residual Capacity Code"
+      slave: 0
+      address: 4622       # 0x120E
+      input_type: input
+      data_type: uint16
+      
+    - name: "SEPLOS Battery Equalization State Code"
+      slave: 0
+      address: 4624       # 0x1210
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Hard Fault Event Code"
+      slave: 0
+      address: 4625       # 0x1211
+      input_type: input
+      data_type: uint16
+      
+      
+    # ----------------------
+    # Parametri di sistema (System Parameter)
+    # ----------------------
+    - name: "SEPLOS Equalization Open Voltage"
+      slave: 9
+      address: 4944       # 0x1350
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: V
+      scale: 0.01
+      precision: 2
+
+    - name: "SEPLOS Equalization Open Voltage Diff"
+      slave: 0
+      address: 4945       # 0x1351
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: V
+      scale: 0.001
+      precision: 3
+
+    - name: "SEPLOS Equalization Stop Voltage Diff"
+      slave: 0
+      address: 4946       # 0x1352
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: V
+      scale: 0.001
+      precision: 3
+
+    - name: "SEPLOS SOC Full Release"
+      slave: 0
+      address: 4947       # 0x1353
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: "%"
+      scale: 0.1
+      precision: 1
+
+    - name: "SEPLOS SOC Low Recover"
+      slave: 0
+      address: 4948       # 0x1354
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: "%"
+      scale: 0.1
+      precision: 1
+
+    - name: "SEPLOS SOC Low Alarm"
+      slave: 0
+      address: 4949       # 0x1355
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS SOC Under Recover"
+      slave: 0
+      address: 4950       # 0x1356
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS SOC Under Protection"
+      slave: 0
+      address: 4951       # 0x1357
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Battery Rated Capacity"
+      slave: 0
+      address: 4952       # 0x1358
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: Ah
+      scale: 0.1
+      precision: 1
+
+    - name: "SEPLOS Battery Total Capacity"
+      slave: 0
+      address: 4953       # 0x1359
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: Ah
+      scale: 0.1
+      precision: 1
+
+    - name: "SEPLOS Residual Capacity"
+      slave: 0
+      address: 4954       # 0x135A
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: Ah
+      scale: 0.1
+      precision: 1
+
+    - name: "SEPLOS Standby-to-Sleep Time"
+      slave: 0
+      address: 4955       # 0x135B
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: s
+
+    - name: "SEPLOS FOCS Output Delay Time"
+      slave: 0
+      address: 4956       # 0x135C
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: s
+
+    - name: "SEPLOS FOCS Output Split"
+      slave: 0
+      address: 4957       # 0x135D
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS PCS Output Timers"
+      slave: 0
+      address: 4958       # 0x135E
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: s
+
+    - name: "SEPLOS Compensating Position 1"
+      slave: 0
+      address: 4959       # 0x135F
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Position 1 Resistance"
+      slave: 0
+      address: 4960       # 0x1360
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: Ω
+      scale: 0.001
+      precision: 3
+
+    - name: "SEPLOS Compensating Position 2"
+      slave: 0
+      address: 4961       # 0x1361
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Position 2 Resistance"
+      slave: 0
+      address: 4962       # 0x1362
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: Ω
+      scale: 0.001
+      precision: 3
+
+    - name: "SEPLOS Cell Diff Alarm"
+      slave: 0
+      address: 4963       # 0x1363
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS Diff Alarm Recover"
+      slave: 0
+      address: 4964       # 0x1364
+      input_type: input
+      data_type: uint16
+
+    - name: "SEPLOS PCS Request Charge Limit Voltage"
+      slave: 0
+      address: 4965       # 0x1365
+      input_type: input
+      data_type: uint16
+      unit_of_measurement: V
+      scale: 0.01
+      precision: 2
+      
+    
+      
+    # Celle 1–16
+    - name: SEPLOS N1 CELL1 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4352
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL2 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4353
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL3 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4354
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL4 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4355
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL5 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4356
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL6 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4357
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL7 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4358
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL8 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4359
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL9 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4360
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL10 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4361
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL11 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4362
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL12 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4363
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL13 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4364
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL14 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4365
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL15 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4366
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+
+    - name: SEPLOS N1 CELL16 TENSIONE
+      unit_of_measurement: V
+      slave: 0
+      address: 4367
+      input_type: input
+      scale: 0.001
+      precision: 3
+      device_class: voltage
+      
