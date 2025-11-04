@@ -11,7 +11,7 @@ What do you need?
 Let's proceed:
 Cut the LAN cable and strip the white-orange and orange wires.
 
-Connect the first to pin A and the second to pin B. Then connect it to the Seplos RS485 output (see image).
+Connect the first to pin A and the second to pin B. Then connect it to the Seplos RS4852 output (see image).
 
 Log in to the Elfwin AP, go to "others" and upload the "EW11_Seplos" backup file, making sure to change the IP address to the one assigned by your router.
 
