@@ -17,7 +17,7 @@ Log in to the Elfwin AP, go to "others" and upload the "EW11_Seplos" backup file
 
 Set the Elfwin IP address to static on the router.
 
-Add the yaml files to the /config of Home Assistant, modifying "configuration.yaml" with the strings from the "configuration..." file attached to the repository.
+Add the yaml files to the /config of Home Assistant, adding to your "configuration.yaml" with the strings from the "configuration..." file attached to the repository.
 
 If you need to monitor multiple, unconnected packages (slave and master), rename the file, the IP address of the new Elfwin, and the name of the new device, as shown in the differences between the seplos_1 and _2 files.
 
